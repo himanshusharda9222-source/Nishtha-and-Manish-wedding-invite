@@ -1199,7 +1199,7 @@ body.theme-teal #gold-flash {
           <label>Number of Guests With You</label>
           <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
             <button type="button" onclick="changeGuests(-1)" style="width:40px;height:40px;font-size:24px;background:rgba(245,200,70,0.1);border:1px solid rgba(200,152,10,0.3);color:var(--gold-bright);cursor:pointer;border-radius:4px;transition:all 0.3s;">−</button>
-            <input type="number" id="rGuests" value="1" min="1" max="20" readonly="" style="width:80px;text-align:center;font-size:24px;font-weight:bold;background:rgba(245,208,80,0.05);border:1px solid rgba(200,152,10,0.3);color:var(--gold-bright);padding:8px;border-radius:4px;">
+            <input type="number" id="rGuests" value="0" min="0" max="20" readonly="" style="width:80px;text-align:center;font-size:24px;font-weight:bold;background:rgba(245,208,80,0.05);border:1px solid rgba(200,152,10,0.3);color:var(--gold-bright);padding:8px;border-radius:4px;">
             <button type="button" onclick="changeGuests(1)" style="width:40px;height:40px;font-size:24px;background:rgba(245,200,70,0.1);border:1px solid rgba(200,152,10,0.3);color:var(--gold-bright);cursor:pointer;border-radius:4px;transition:all 0.3s;">+</button>
           </div>
         </div>
@@ -2656,12 +2656,19 @@ function teTab(name,btn){
 }
 
 // Guest counter
-function changeGuests(delta){
-  const input = document.getElementById('rGuests');
-  let val = parseInt(input.value) || 1;
-  val = Math.max(1, Math.min(20, val + delta));
-  input.value = val;
+function changeGuests(delta) {
+  const input = document.getElementById("rGuests");
+
+  let value = Number(input.value);
+
+  value += delta;
+
+  if (value < 0) value = 0;
+  if (value > 20) value = 20;
+
+  input.value = value;
 }
+
 
 // ===== RSVP =====
 async function submitRSVP(){
