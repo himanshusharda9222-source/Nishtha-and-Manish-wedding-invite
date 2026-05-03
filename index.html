@@ -1,13 +1,12 @@
 <html lang="en"><head>
-<meta name="apple-mobile-web-app-capable" content="yes">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Nishtha &amp; Manish— Wedding</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Cinzel:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+* { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { background:var(--dark-bg); font-family:'Cormorant Garamond', serif; overflow-x: hidden; overflow-y: hidden; color:var(--text-cream); -webkit-overflow-scrolling:touch; cursor:pointer; }
+body { background:var(--dark-bg); font-family:'Cormorant Garamond', serif; overflow:hidden; color:var(--text-cream); }
 
 /* ===== SHARED DARK CINEMATIC VARIABLES ===== */
 :root {
@@ -55,8 +54,8 @@ body { background:var(--dark-bg); font-family:'Cormorant Garamond', serif; overf
 #sparkleWrap {
   position: fixed;
   inset: 0;
-  pointer-events: none !important;
-  z-index: 100;
+  pointer-events: none;
+  z-index: 99999;
 }
 
 .sparkle {
@@ -331,8 +330,9 @@ body { background:var(--dark-bg); font-family:'Cormorant Garamond', serif; overf
 /* ======================================================
    FLOATING BUTTONS
 ====================================================== */
-.floats { position:fixed; bottom:76px; right:16px; z-index:10001; display:flex; flex-direction:column; gap:10px; pointer-events: none; -webkit-transform: translateZ(0); transform: translateZ(0); }
-.fb { width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; border:none; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.5); transition:transform 0.2s; position:relative; pointer-events: auto; }
+.floats { position:fixed; bottom:76px; right:16px; z-index:10001; display:flex; flex-direction:column; gap:10px; pointer-events: all;  }
+.fb { width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; border:none; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.5); transition:transform 0.2s; position:relative; }
+.fb:hover { transform:scale(1.12); }
 .fb.f-theme { background:linear-gradient(135deg,#4a1a8a,#7a3aba); }
 .fb.f-edit  { background:linear-gradient(135deg,#8a1a10,#c03020); }
 .fb.f-music { background:linear-gradient(135deg,#1a3a5a,#2a70aa); }
@@ -345,23 +345,17 @@ body { background:var(--dark-bg); font-family:'Cormorant Garamond', serif; overf
   color:#d8f0d8; font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px;
   text-transform:uppercase; padding:10px 18px; border:none; border-radius:30px;
   cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.5);
-  transition:transform 0.2s, box-shadow 0.2s;pointer-events: all; pointer-events: auto;
+  transition:transform 0.2s, box-shadow 0.2s;pointer-events: all; 
 }
-
+.admin-capsule:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.6); }
 .fb-tip { position:absolute; right:54px; top:50%; transform:translateY(-50%); background:rgba(10,4,8,0.95); border:1px solid rgba(200,152,10,0.3); color:var(--text-cream); font-family:'Cinzel',serif; font-size:10px; letter-spacing:1px; white-space:nowrap; padding:6px 12px; border-radius:20px; opacity:0; pointer-events:none; transition:opacity 0.2s; }
-
-/* 🟢 FIX: ONLY APPLY HOVER IF USING A MOUSE */
-@media (hover: hover) {
-  .fb:hover { transform:scale(1.12); }
-  .admin-capsule:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.6); }
-  .fb:hover .fb-tip { opacity:1; }
-}
+.fb:hover .fb-tip { opacity:1; }
 
 /* ======================================================
    MODALS — slide-in side panel (no full-screen darkening)
 ====================================================== */
 .overlay { position:fixed; inset:0; z-index:10005; background:transparent; display:none; align-items:flex-end; justify-content:flex-end; padding:0; pointer-events:none; }
-.overlay.open { display:flex; pointer-events: auto;}
+.overlay.open { display:flex; }
 .modal {
   background:linear-gradient(160deg,#1e0c16 0%,#120608 100%);
   border:1px solid rgba(200,152,10,0.3);
@@ -645,21 +639,21 @@ body.theme-teal #gold-flash {
   localStorage.setItem('wData', JSON.stringify({"bride":"Nishtha","groom":"Manish","date":"18–19 June 2026","city":"Kota","venue":"The Auric Resort","addr":"Kota, Rajasthan","mapLink":"https://maps.google.com/?q=The+Auric+Resort+Kota+Rajasthan","embedLink":"https://maps.google.com/maps?q=The+Auric+Resort+Kota+Rajasthan&output=embed&z=14","ev1":"18th June, 2026 | 7:00 AM","ev2":"18th June, 2026 | 9:30 AM","ev3":"18th June, 2026 | 11:00 AM","ev4":"18th June, 2026 | 6:00 PM","ev5":"19th June, 2026 | 11:55 AM","ev6":"19th June, 2026 | 2:00 PM","ev7":"19th June, 2026 | 7:00 PM","sheetUrl":"https://script.google.com/macros/s/AKfycbwsdSW2uP4Bh4Pto5QKUdbqzcmJMkPnJ7AIIZPTpW2NZEc9ARsZS5ssoByUN5tbjZAtgw/exec","introTagline":"You are invited to our daughter's| wedding","tapBtn":"✦ Tap anywhere to open ✦","heroTagline":"We solicit your presence on |the auspicious occasion of our| daughter's wedding","weds":"— weds —","cdLabel":"Days Until We Say","cdTitle":"Countdown to the wedding","evLabel":"Celebration Programs","evTitle":"The Festivities","ev1name":"Ganesh Poojan","ev2name":"Dholi Kalash","ev3name":"Haldi Ceremony","ev4name":"Engagement & Sangeet","ev5name":"Barat Swagat","ev6name":"Panigrahan Sanskar (Phere)","ev7name":"Reception","venueLabel":"Wedding Venue","venueTitle":"The Venue","rsvpLabel":"Kindly Fill the details","rsvpTitle":"To help us plan, please confirm your attendance by 20/05/2026","rsvpBtn":"✦Send Details✦","footerSub":"With love & blessings from all| elders","footerVenue":"The Auric Resort · Kota"}));
   localStorage.setItem('wTheme', "");
   localStorage.setItem('wMusicTrack', "user");
-  localStorage.setItem('wFontSpacing', JSON.stringify({"intro-block":{"intro-tag":{"fontFamily":"Georgia,serif","fontSize":10,"letterSpacing":1.5,"lineHeight":"1.2"},"intro-name":{"fontFamily":"'Great Vibes',cursive","fontSize":42,"letterSpacing":0,"lineHeight":"1.3"},"intro-dt":{"fontFamily":"'Times New Roman',serif","fontSize":12,"letterSpacing":1.5,"lineHeight":"1.3"},"groupGap":-1},"intro-tap":{"fontSize":12,"fontFamily":"'Times New Roman',serif","lineHeight":"0.8","letterSpacing":1},"hero-names":{"hero-bride":{"fontSize":71,"letterSpacing":0,"lineHeight":"1.5"},"hero-weds":{"fontSize":36,"letterSpacing":4.5,"lineHeight":"1.7"},"hero-groom":{"fontSize":71,"letterSpacing":0,"lineHeight":"1.1"},"groupGap":-14},"hero-tagline":{"fontSize":13,"fontFamily":"Arial,sans-serif","letterSpacing":1,"lineHeight":"1.1","tl-2":{"fontSize":22,"lineHeight":"1.5","letterSpacing":0.5},"tl-1":{"lineHeight":"1.5","fontSize":12},"tl-0":{"lineHeight":"1.6","fontSize":12},"tlGap":-4},"cd-label":{"fontSize":15,"letterSpacing":1.5,"lineHeight":"1","fontFamily":"Georgia,serif"},"cd-title":{"fontFamily":"'Great Vibes',cursive","fontSize":52,"letterSpacing":1,"lineHeight":"1.4"},"cd-unit-lbl":{"fontSize":12,"letterSpacing":1.5,"lineHeight":"0.8"},"sec-events":{"ev-lbl":{"fontSize":13,"letterSpacing":4.5,"lineHeight":"1.4"},"ev-tit":{"fontSize":50,"lineHeight":"1.2","letterSpacing":0},"groupGap":11},"event-name":{"fontSize":14,"letterSpacing":0.5},"event-detail":{"fontSize":17,"lineHeight":"1","tl-0":{"fontSize":19},"tl-1":{"fontSize":18}},"sec-venue":{"ven-lbl":{"fontSize":15,"letterSpacing":3.5,"lineHeight":"1.1","fontFamily":"'Cormorant Garamond',serif"},"ven-tit":{"fontSize":45,"letterSpacing":0,"lineHeight":"1.1"},"groupGap":3},"venue-name":{"fontSize":46,"letterSpacing":0,"lineHeight":"1","fontFamily":"'Cinzel',serif"},"venue-addr":{"fontSize":23,"lineHeight":"0.8","letterSpacing":1.5},"sec-rsvp":{"rsvp-lbl":{"fontSize":14,"lineHeight":"2.1","fontFamily":"'Cinzel',serif"},"groupGap":1,"rsvp-tit":{"fontSize":42,"letterSpacing":0.5,"lineHeight":"1.1"}},"rsvp-field-lbl":{"fontSize":11,"letterSpacing":2,"lineHeight":"1.1"},"rsvp-btn":{"fontSize":16,"letterSpacing":6,"lineHeight":"0.8"},"footer-block":{"foot-names":{"fontSize":38,"letterSpacing":1,"lineHeight":"0.8"},"foot-sub":{"fontSize":16,"lineHeight":"1.3"},"foot-venue":{"fontSize":17,"fontFamily":"'Cinzel',serif"},"groupGap":19},"hero-date":{"fontSize":14,"lineHeight":"0.8","letterSpacing":3},"event-dresscode":{"fontSize":8,"letterSpacing":0.5,"lineHeight":"2.2"},"reveal-teaser":{"fontSize":10,"lineHeight":"1.2","letterSpacing":1},"reception-emojis":{"fontSize":23},"intro-tagline-lines":{"itl-1":{"fontSize":20,"fontFamily":"Georgia,serif"},"itl-0":{"fontFamily":"'Times New Roman',serif"}}}));
+  localStorage.setItem('wFontSpacing', JSON.stringify({"intro-block":{"intro-tag":{"fontFamily":"Georgia,serif","fontSize":10,"letterSpacing":1.5,"lineHeight":"1.2"},"intro-name":{"fontFamily":"'Great Vibes',cursive","fontSize":42,"letterSpacing":0,"lineHeight":"1.3"},"intro-dt":{"fontFamily":"'Times New Roman',serif","fontSize":12,"letterSpacing":1.5,"lineHeight":"1.3"},"groupGap":-1},"intro-tap":{"fontSize":12,"fontFamily":"'Times New Roman',serif","lineHeight":"0.8","letterSpacing":1},"hero-names":{"hero-bride":{"fontSize":71,"letterSpacing":0,"lineHeight":"1.5"},"hero-weds":{"fontSize":36,"letterSpacing":4.5,"lineHeight":"1.7"},"hero-groom":{"fontSize":71,"letterSpacing":0,"lineHeight":"1.1"},"groupGap":-14},"hero-tagline":{"fontSize":13,"fontFamily":"Arial,sans-serif","letterSpacing":1,"lineHeight":"1.1","tl-2":{"fontSize":22,"lineHeight":"1.5","letterSpacing":0.5},"tl-1":{"lineHeight":"1.5","fontSize":11,"letterSpacing":4},"tl-0":{"lineHeight":"1.6","fontSize":12},"tlGap":-4},"cd-label":{"fontSize":15,"letterSpacing":1.5,"lineHeight":"1","fontFamily":"Georgia,serif"},"cd-title":{"fontFamily":"'Great Vibes',cursive","fontSize":52,"letterSpacing":1,"lineHeight":"1.4"},"cd-unit-lbl":{"fontSize":12,"letterSpacing":1.5,"lineHeight":"0.8"},"sec-events":{"ev-lbl":{"fontSize":13,"letterSpacing":4.5,"lineHeight":"1.4"},"ev-tit":{"fontSize":50,"lineHeight":"1.2","letterSpacing":0},"groupGap":11},"event-name":{"fontSize":14,"letterSpacing":0.5},"event-detail":{"fontSize":17,"lineHeight":"1","tl-0":{"fontSize":22,"lineHeight":"1.1"},"tl-1":{"fontSize":21,"lineHeight":"1"}},"sec-venue":{"ven-lbl":{"fontSize":15,"letterSpacing":3.5,"lineHeight":"1.1","fontFamily":"'Cormorant Garamond',serif"},"ven-tit":{"fontSize":45,"letterSpacing":0,"lineHeight":"1.1"},"groupGap":3},"venue-name":{"fontSize":46,"letterSpacing":0,"lineHeight":"1","fontFamily":"'Cinzel',serif"},"venue-addr":{"fontSize":23,"lineHeight":"0.8","letterSpacing":1.5},"sec-rsvp":{"rsvp-lbl":{"fontSize":14,"lineHeight":"2.1","fontFamily":"'Cinzel',serif"},"groupGap":1,"rsvp-tit":{"fontSize":42,"letterSpacing":0.5,"lineHeight":"1.1"}},"rsvp-field-lbl":{"fontSize":11,"letterSpacing":2,"lineHeight":"1.1"},"rsvp-btn":{"fontSize":16,"letterSpacing":6,"lineHeight":"0.8"},"footer-block":{"foot-names":{"fontSize":38,"letterSpacing":1,"lineHeight":"0.8"},"foot-sub":{"fontSize":16,"lineHeight":"1.3"},"foot-venue":{"fontSize":17,"fontFamily":"'Cinzel',serif"},"groupGap":19},"hero-date":{"fontSize":14,"lineHeight":"0.8","letterSpacing":3},"event-dresscode":{"fontSize":8,"letterSpacing":0.5,"lineHeight":"2.2"},"reveal-teaser":{"fontSize":10,"lineHeight":"1.2","letterSpacing":1},"reception-emojis":{"fontSize":23},"intro-tagline-lines":{"itl-1":{"fontSize":20,"fontFamily":"Georgia,serif"},"itl-0":{"fontFamily":"'Times New Roman',serif"}}}));
 })();
 </script></head>
 <body class="">
 
   <!-- Sparkles -->
-<div id="sparkleWrap" style="position:fixed;inset:0;pointer-events:none !important;overflow:hidden;z-index:100"><div class="sparkle" data-depth="0.15010095603046597" style="width: 3.64195px; height: 3.64195px; left: 54.5003%; top: 34.0176%; animation-delay: 0.406878s; margin-top: -477.921px;"></div><div class="sparkle" data-depth="0.15105885883574155" style="width: 2.02699px; height: 2.02699px; left: 44.5458%; top: 10.105%; animation-delay: 1.41701s; margin-top: -480.971px;"></div><div class="sparkle" data-depth="0.203672063827243" style="width: 1.1071px; height: 1.1071px; left: 44.1813%; top: 87.6082%; animation-delay: 4.83822s; margin-top: -648.492px;"></div><div class="sparkle" data-depth="0.15703625252404788" style="width: 3.02182px; height: 3.02182px; left: 80.6474%; top: 15.9934%; animation-delay: 2.19866s; margin-top: -500.003px;"></div><div class="sparkle" data-depth="0.10568988396910253" style="width: 1.56487px; height: 1.56487px; left: 57.3559%; top: 49.7757%; animation-delay: 0.626705s; margin-top: -336.517px;"></div><div class="sparkle" data-depth="0.14876817725294614" style="width: 3.31509px; height: 3.31509px; left: 77.2673%; top: 86.6749%; animation-delay: 2.99409s; margin-top: -473.678px;"></div><div class="sparkle" data-depth="0.1708133853861668" style="width: 2.92231px; height: 2.92231px; left: 71.3636%; top: 19.4139%; animation-delay: 1.75504s; margin-top: -543.87px;"></div><div class="sparkle" data-depth="0.24238917191862697" style="width: 1.23609px; height: 1.23609px; left: 0.161527%; top: 54.4025%; animation-delay: 3.23486s; margin-top: -771.767px;"></div><div class="sparkle" data-depth="0.14703691170101546" style="width: 3.3443px; height: 3.3443px; left: 73.3415%; top: 88.1583%; animation-delay: 2.38815s; margin-top: -468.166px;"></div><div class="sparkle" data-depth="0.14079385365165445" style="width: 1.58841px; height: 1.58841px; left: 0.329057%; top: 1.06165%; animation-delay: 4.34579s; margin-top: -448.288px;"></div><div class="sparkle" data-depth="0.06754275287630924" style="width: 2.99529px; height: 2.99529px; left: 96.5854%; top: 53.0814%; animation-delay: 3.22191s; margin-top: -215.056px;"></div><div class="sparkle" data-depth="0.14494760129064782" style="width: 3.49093px; height: 3.49093px; left: 37.9531%; top: 1.85371%; animation-delay: 3.04073s; margin-top: -461.513px;"></div><div class="sparkle" data-depth="0.1947712073979907" style="width: 2.96953px; height: 2.96953px; left: 8.46193%; top: 76.4662%; animation-delay: 1.12664s; margin-top: -620.152px;"></div><div class="sparkle" data-depth="0.16844928238522738" style="width: 1.9727px; height: 1.9727px; left: 75.0345%; top: 21.061%; animation-delay: 4.91279s; margin-top: -536.343px;"></div><div class="sparkle" data-depth="0.1231057383150728" style="width: 1.91496px; height: 1.91496px; left: 57.508%; top: 1.94057%; animation-delay: 0.30007s; margin-top: -391.969px;"></div><div class="sparkle" data-depth="0.1017886537329946" style="width: 3.60307px; height: 3.60307px; left: 59.7989%; top: 63.4358%; animation-delay: 4.7118s; margin-top: -324.095px;"></div><div class="sparkle" data-depth="0.19378177580198402" style="width: 2.6776px; height: 2.6776px; left: 5.81978%; top: 80.6632%; animation-delay: 2.64181s; margin-top: -617.001px;"></div><div class="sparkle" data-depth="0.05832177935328804" style="width: 1.61591px; height: 1.61591px; left: 91.9693%; top: 36.5512%; animation-delay: 3.20718s; margin-top: -185.697px;"></div><div class="sparkle" data-depth="0.10197742991953965" style="width: 2.62473px; height: 2.62473px; left: 27.5391%; top: 32.0225%; animation-delay: 3.78507s; margin-top: -324.696px;"></div><div class="sparkle" data-depth="0.08559973109408558" style="width: 1.34751px; height: 1.34751px; left: 90.9659%; top: 13.156%; animation-delay: 3.71761s; margin-top: -272.55px;"></div><div class="sparkle" data-depth="0.10613703559462413" style="width: 1.23892px; height: 1.23892px; left: 23.6544%; top: 17.1569%; animation-delay: 1.58036s; margin-top: -337.94px;"></div><div class="sparkle" data-depth="0.15991204686623606" style="width: 3.20993px; height: 3.20993px; left: 84.0331%; top: 15.4617%; animation-delay: 2.39903s; margin-top: -509.16px;"></div><div class="sparkle" data-depth="0.16171929896637605" style="width: 3.8557px; height: 3.8557px; left: 79.7731%; top: 81.1891%; animation-delay: 1.94604s; margin-top: -514.914px;"></div><div class="sparkle" data-depth="0.16741299591680084" style="width: 1.16491px; height: 1.16491px; left: 59.0416%; top: 29.0706%; animation-delay: 3.93287s; margin-top: -533.043px;"></div><div class="sparkle" data-depth="0.16641254622382406" style="width: 1.86055px; height: 1.86055px; left: 23.6871%; top: 31.5813%; animation-delay: 2.03685s; margin-top: -529.858px;"></div><div class="sparkle" data-depth="0.16613972002460822" style="width: 1.197px; height: 1.197px; left: 2.46047%; top: 53.3004%; animation-delay: 2.28194s; margin-top: -528.989px;"></div><div class="sparkle" data-depth="0.1122106104440876" style="width: 1.42448px; height: 1.42448px; left: 81.8301%; top: 96.6998%; animation-delay: 4.54163s; margin-top: -357.279px;"></div><div class="sparkle" data-depth="0.238069993969927" style="width: 2.12009px; height: 2.12009px; left: 50.4737%; top: 9.83488%; animation-delay: 3.32298s; margin-top: -758.015px;"></div><div class="sparkle" data-depth="0.10042505514033417" style="width: 3.81802px; height: 3.81802px; left: 15.3393%; top: 68.1679%; animation-delay: 0.801121s; margin-top: -319.753px;"></div><div class="sparkle" data-depth="0.06257611348002999" style="width: 2.02358px; height: 2.02358px; left: 82.8392%; top: 10.5587%; animation-delay: 4.08301s; margin-top: -199.242px;"></div><div class="sparkle" data-depth="0.08993415560291354" style="width: 1.00971px; height: 1.00971px; left: 77.8948%; top: 99.7053%; animation-delay: 1.27496s; margin-top: -286.35px;"></div><div class="sparkle" data-depth="0.10690408488365309" style="width: 1.83664px; height: 1.83664px; left: 83.1006%; top: 13.7827%; animation-delay: 4.03925s; margin-top: -340.383px;"></div><div class="sparkle" data-depth="0.11805167888389033" style="width: 3.48182px; height: 3.48182px; left: 28.8547%; top: 82.2632%; animation-delay: 3.8378s; margin-top: -375.877px;"></div><div class="sparkle" data-depth="0.13313102256637405" style="width: 2.12598px; height: 2.12598px; left: 82.7475%; top: 0.185856%; animation-delay: 2.24836s; margin-top: -423.889px;"></div><div class="sparkle" data-depth="0.24412720382645886" style="width: 2.78534px; height: 2.78534px; left: 49.7413%; top: 70.4006%; animation-delay: 1.31204s; margin-top: -777.301px;"></div><div class="sparkle" data-depth="0.21283046492891905" style="width: 1.46173px; height: 1.46173px; left: 74.0356%; top: 77.1708%; animation-delay: 4.84768s; margin-top: -677.652px;"></div><div class="sparkle" data-depth="0.24493369734583326" style="width: 3.5873px; height: 3.5873px; left: 98.3631%; top: 40.878%; animation-delay: 3.24065s; margin-top: -779.869px;"></div><div class="sparkle" data-depth="0.20813597727983407" style="width: 3.82834px; height: 3.82834px; left: 87.6108%; top: 84.2827%; animation-delay: 4.96377s; margin-top: -662.705px;"></div><div class="sparkle" data-depth="0.2321083937567368" style="width: 3.10918px; height: 3.10918px; left: 83.3812%; top: 37.1979%; animation-delay: 1.23074s; margin-top: -739.033px;"></div><div class="sparkle" data-depth="0.16257007143939856" style="width: 3.03086px; height: 3.03086px; left: 13.525%; top: 37.6485%; animation-delay: 2.49291s; margin-top: -517.623px;"></div><div class="sparkle" data-depth="0.1017078528787214" style="width: 3.14648px; height: 3.14648px; left: 76.6773%; top: 86.8924%; animation-delay: 0.616375s; margin-top: -323.838px;"></div><div class="sparkle" data-depth="0.1729264430764092" style="width: 1.68881px; height: 1.68881px; left: 59.0163%; top: 41.0864%; animation-delay: 3.51314s; margin-top: -550.598px;"></div><div class="sparkle" data-depth="0.06505371424472797" style="width: 1.48573px; height: 1.48573px; left: 56.4578%; top: 91.274%; animation-delay: 1.74408s; margin-top: -207.131px;"></div><div class="sparkle" data-depth="0.23023570868557208" style="width: 1.63322px; height: 1.63322px; left: 60.3825%; top: 11.199%; animation-delay: 3.63318s; margin-top: -733.07px;"></div><div class="sparkle" data-depth="0.16212736290070107" style="width: 1.7748px; height: 1.7748px; left: 96.1622%; top: 6.5938%; animation-delay: 1.93126s; margin-top: -516.214px;"></div><div class="sparkle" data-depth="0.2405794928715273" style="width: 3.57802px; height: 3.57802px; left: 87.0775%; top: 58.8802%; animation-delay: 3.93732s; margin-top: -766.005px;"></div><div class="sparkle" data-depth="0.22395905786615428" style="width: 3.06014px; height: 3.06014px; left: 76.8065%; top: 96.8446%; animation-delay: 2.33886s; margin-top: -713.086px;"></div><div class="sparkle" data-depth="0.2424255447884045" style="width: 3.47862px; height: 3.47862px; left: 92.3792%; top: 33.4523%; animation-delay: 0.706519s; margin-top: -771.883px;"></div><div class="sparkle" data-depth="0.19949032133588784" style="width: 1.33359px; height: 1.33359px; left: 28.0549%; top: 70.4068%; animation-delay: 0.0282603s; margin-top: -635.177px;"></div><div class="sparkle" data-depth="0.23833398772408204" style="width: 1.13344px; height: 1.13344px; left: 76.3248%; top: 46.1543%; animation-delay: 0.612078s; margin-top: -758.855px;"></div><div class="sparkle" data-depth="0.17357234341008135" style="width: 1.74331px; height: 1.74331px; left: 72.2406%; top: 31.2404%; animation-delay: 1.32085s; margin-top: -552.654px;"></div><div class="sparkle" data-depth="0.09683884952945968" style="width: 2.74799px; height: 2.74799px; left: 16.6865%; top: 20.8238%; animation-delay: 4.09468s; margin-top: -308.335px;"></div><div class="sparkle" data-depth="0.08728901788915673" style="width: 1.68897px; height: 1.68897px; left: 32.0327%; top: 77.5489%; animation-delay: 1.04858s; margin-top: -277.928px;"></div><div class="sparkle" data-depth="0.1929880496765467" style="width: 3.97781px; height: 3.97781px; left: 70.0873%; top: 50.7373%; animation-delay: 4.99833s; margin-top: -614.474px;"></div><div class="sparkle" data-depth="0.14137746997076656" style="width: 2.26375px; height: 2.26375px; left: 18.1269%; top: 58.3105%; animation-delay: 4.66986s; margin-top: -450.146px;"></div><div class="sparkle" data-depth="0.09157049004213946" style="width: 2.12697px; height: 2.12697px; left: 77.8387%; top: 72.4241%; animation-delay: 0.731579s; margin-top: -291.56px;"></div><div class="sparkle" data-depth="0.1748338112171408" style="width: 1.6001px; height: 1.6001px; left: 86.5542%; top: 14.0709%; animation-delay: 4.16791s; margin-top: -556.671px;"></div><div class="sparkle" data-depth="0.1142033483049036" style="width: 1.33269px; height: 1.33269px; left: 93.0471%; top: 65.9315%; animation-delay: 1.705s; margin-top: -363.623px;"></div><div class="sparkle" data-depth="0.08710270262929994" style="width: 2.07526px; height: 2.07526px; left: 46.3357%; top: 28.2009%; animation-delay: 0.860661s; margin-top: -277.335px;"></div><div class="sparkle" data-depth="0.2006392248610655" style="width: 3.67696px; height: 3.67696px; left: 20.792%; top: 45.8886%; animation-delay: 1.93333s; margin-top: -638.835px;"></div><div class="sparkle" data-depth="0.10885926345275716" style="width: 2.04691px; height: 2.04691px; left: 58.71%; top: 78.3568%; animation-delay: 0.919713s; margin-top: -346.608px;"></div><div class="sparkle" data-depth="0.15797916760568081" style="width: 1.54979px; height: 1.54979px; left: 13.1712%; top: 80.544%; animation-delay: 1.85686s; margin-top: -503.006px;"></div><div class="sparkle" data-depth="0.17193797749307893" style="width: 3.11707px; height: 3.11707px; left: 37.5155%; top: 83.4661%; animation-delay: 0.435636s; margin-top: -547.451px;"></div><div class="sparkle" data-depth="0.18405067755233728" style="width: 1.98311px; height: 1.98311px; left: 52.4331%; top: 50.9592%; animation-delay: 0.52242s; margin-top: -586.017px;"></div><div class="sparkle" data-depth="0.09040515386175772" style="width: 3.17185px; height: 3.17185px; left: 0.840658%; top: 46.5668%; animation-delay: 0.746265s; margin-top: -287.85px;"></div><div class="sparkle" data-depth="0.13322204619635095" style="width: 3.44333px; height: 3.44333px; left: 60.7684%; top: 95.5918%; animation-delay: 3.97172s; margin-top: -424.179px;"></div><div class="sparkle" data-depth="0.10255026889733226" style="width: 2.68603px; height: 2.68603px; left: 38.7106%; top: 46.3774%; animation-delay: 4.20482s; margin-top: -326.52px;"></div><div class="sparkle" data-depth="0.1231614780701216" style="width: 1.84324px; height: 1.84324px; left: 57.3483%; top: 20.5287%; animation-delay: 1.53056s; margin-top: -392.146px;"></div><div class="sparkle" data-depth="0.05252760027062014" style="width: 2.31683px; height: 2.31683px; left: 32.6066%; top: 5.6762%; animation-delay: 3.43255s; margin-top: -167.248px;"></div><div class="sparkle" data-depth="0.1559825357751285" style="width: 2.74424px; height: 2.74424px; left: 9.56171%; top: 96.1341%; animation-delay: 1.99158s; margin-top: -496.648px;"></div><div class="sparkle" data-depth="0.1987001851509867" style="width: 1.14039px; height: 1.14039px; left: 37.2999%; top: 4.22934%; animation-delay: 1.35725s; margin-top: -632.661px;"></div><div class="sparkle" data-depth="0.24891905498486183" style="width: 2.06234px; height: 2.06234px; left: 64.7654%; top: 18.9193%; animation-delay: 0.687935s; margin-top: -792.558px;"></div><div class="sparkle" data-depth="0.2394975528689966" style="width: 2.88866px; height: 2.88866px; left: 68.7982%; top: 34.2884%; animation-delay: 2.54578s; margin-top: -762.56px;"></div><div class="sparkle" data-depth="0.07569847575644154" style="width: 2.69845px; height: 2.69845px; left: 37.4312%; top: 8.2986%; animation-delay: 3.36909s; margin-top: -241.024px;"></div><div class="sparkle" data-depth="0.11664756259347486" style="width: 2.81707px; height: 2.81707px; left: 11.176%; top: 49.435%; animation-delay: 2.39375s; margin-top: -371.406px;"></div><div class="sparkle" data-depth="0.1166789864229093" style="width: 1.87729px; height: 1.87729px; left: 45.7342%; top: 3.02135%; animation-delay: 4.05439s; margin-top: -371.506px;"></div><div class="sparkle" data-depth="0.17777417959271496" style="width: 3.74914px; height: 3.74914px; left: 36.6858%; top: 85.683%; animation-delay: 3.48833s; margin-top: -566.033px;"></div><div class="sparkle" data-depth="0.1573201991530238" style="width: 2.07973px; height: 2.07973px; left: 13.9434%; top: 58.4502%; animation-delay: 1.62089s; margin-top: -500.908px;"></div><div class="sparkle" data-depth="0.12880177672767726" style="width: 1.43245px; height: 1.43245px; left: 33.5809%; top: 92.3134%; animation-delay: 4.86627s; margin-top: -410.105px;"></div><div class="sparkle" data-depth="0.2413253132284962" style="width: 1.86474px; height: 1.86474px; left: 75.4357%; top: 96.8069%; animation-delay: 3.8426s; margin-top: -768.38px;"></div></div>
+<div id="sparkleWrap" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10001"><div class="sparkle" data-depth="0.051211021611699686" style="width: 2.70519px; height: 2.70519px; left: 80.1702%; top: 3.87774%; animation-delay: 3.27791s; margin-top: -133.149px;"></div><div class="sparkle" data-depth="0.21628817245969445" style="width: 1.13026px; height: 1.13026px; left: 70.2801%; top: 59.7249%; animation-delay: 1.80924s; margin-top: -562.349px;"></div><div class="sparkle" data-depth="0.20799325726797008" style="width: 1.2459px; height: 1.2459px; left: 3.74747%; top: 68.927%; animation-delay: 3.60584s; margin-top: -540.782px;"></div><div class="sparkle" data-depth="0.06467617595263525" style="width: 3.30902px; height: 3.30902px; left: 61.5295%; top: 15.6193%; animation-delay: 1.79208s; margin-top: -168.158px;"></div><div class="sparkle" data-depth="0.07709074152768608" style="width: 2.39869px; height: 2.39869px; left: 11.2479%; top: 69.2033%; animation-delay: 0.0818972s; margin-top: -200.436px;"></div><div class="sparkle" data-depth="0.2201965641214808" style="width: 2.75857px; height: 2.75857px; left: 65.2414%; top: 30.1219%; animation-delay: 3.41894s; margin-top: -572.511px;"></div><div class="sparkle" data-depth="0.1323677811124894" style="width: 3.68565px; height: 3.68565px; left: 74.0125%; top: 58.9606%; animation-delay: 1.88904s; margin-top: -344.156px;"></div><div class="sparkle" data-depth="0.12370654171558121" style="width: 1.9791px; height: 1.9791px; left: 81.2511%; top: 52.2815%; animation-delay: 3.61588s; margin-top: -321.637px;"></div><div class="sparkle" data-depth="0.1024983550919587" style="width: 2.14368px; height: 2.14368px; left: 27.4749%; top: 70.8995%; animation-delay: 2.28717s; margin-top: -266.496px;"></div><div class="sparkle" data-depth="0.1612324700597188" style="width: 1.13607px; height: 1.13607px; left: 16.9473%; top: 93.0298%; animation-delay: 4.97068s; margin-top: -419.204px;"></div><div class="sparkle" data-depth="0.22175118986194292" style="width: 1.41507px; height: 1.41507px; left: 48.0204%; top: 94.7123%; animation-delay: 2.78436s; margin-top: -576.553px;"></div><div class="sparkle" data-depth="0.22965752597273598" style="width: 2.95906px; height: 2.95906px; left: 52.5117%; top: 98.2813%; animation-delay: 3.89309s; margin-top: -597.11px;"></div><div class="sparkle" data-depth="0.09149091060229504" style="width: 1.35171px; height: 1.35171px; left: 44.1063%; top: 70.9492%; animation-delay: 4.79669s; margin-top: -237.876px;"></div><div class="sparkle" data-depth="0.16195618740051856" style="width: 2.90384px; height: 2.90384px; left: 3.60577%; top: 86.77%; animation-delay: 3.60552s; margin-top: -421.086px;"></div><div class="sparkle" data-depth="0.0980322652665494" style="width: 3.2126px; height: 3.2126px; left: 81.2241%; top: 24.6182%; animation-delay: 2.95674s; margin-top: -254.884px;"></div><div class="sparkle" data-depth="0.18684491332645964" style="width: 2.73643px; height: 2.73643px; left: 53.8981%; top: 98.7708%; animation-delay: 0.381999s; margin-top: -485.797px;"></div><div class="sparkle" data-depth="0.050677435897104606" style="width: 3.01405px; height: 3.01405px; left: 56.4911%; top: 18.0869%; animation-delay: 0.607785s; margin-top: -131.761px;"></div><div class="sparkle" data-depth="0.05091725025553489" style="width: 2.09777px; height: 2.09777px; left: 62.4944%; top: 4.32751%; animation-delay: 3.8248s; margin-top: -132.385px;"></div><div class="sparkle" data-depth="0.09821938558606175" style="width: 2.12777px; height: 2.12777px; left: 68.1544%; top: 74.6143%; animation-delay: 2.40379s; margin-top: -255.37px;"></div><div class="sparkle" data-depth="0.05872213583133732" style="width: 2.73902px; height: 2.73902px; left: 28.8913%; top: 13.7237%; animation-delay: 0.831946s; margin-top: -152.678px;"></div><div class="sparkle" data-depth="0.24420013898981957" style="width: 3.63169px; height: 3.63169px; left: 30.2984%; top: 82.6726%; animation-delay: 3.65812s; margin-top: -634.92px;"></div><div class="sparkle" data-depth="0.170167577111009" style="width: 2.08761px; height: 2.08761px; left: 51.8186%; top: 33.9594%; animation-delay: 0.99154s; margin-top: -442.436px;"></div><div class="sparkle" data-depth="0.24004110636635095" style="width: 2.41055px; height: 2.41055px; left: 20.8137%; top: 87.0956%; animation-delay: 0.96657s; margin-top: -624.107px;"></div><div class="sparkle" data-depth="0.1100425810182496" style="width: 1.34267px; height: 1.34267px; left: 68.3828%; top: 99.764%; animation-delay: 3.86293s; margin-top: -286.111px;"></div><div class="sparkle" data-depth="0.21215666135578626" style="width: 2.11502px; height: 2.11502px; left: 90.1297%; top: 10.9482%; animation-delay: 2.65866s; margin-top: -551.607px;"></div><div class="sparkle" data-depth="0.15875961730762247" style="width: 3.92449px; height: 3.92449px; left: 49.0296%; top: 83.2483%; animation-delay: 3.89743s; margin-top: -412.775px;"></div><div class="sparkle" data-depth="0.08031804479219114" style="width: 1.26246px; height: 1.26246px; left: 57.8146%; top: 12.4088%; animation-delay: 3.12678s; margin-top: -208.827px;"></div><div class="sparkle" data-depth="0.22870051172371403" style="width: 3.8447px; height: 3.8447px; left: 63.4012%; top: 17.1832%; animation-delay: 0.351261s; margin-top: -594.621px;"></div><div class="sparkle" data-depth="0.21986178051581717" style="width: 3.21428px; height: 3.21428px; left: 34.6151%; top: 62.454%; animation-delay: 0.288647s; margin-top: -571.641px;"></div><div class="sparkle" data-depth="0.13248174547705893" style="width: 1.7624px; height: 1.7624px; left: 62.414%; top: 76.448%; animation-delay: 0.959277s; margin-top: -344.453px;"></div><div class="sparkle" data-depth="0.1468483773361825" style="width: 1.27799px; height: 1.27799px; left: 97.4564%; top: 97.2658%; animation-delay: 0.176074s; margin-top: -381.806px;"></div><div class="sparkle" data-depth="0.19612015405391015" style="width: 3.31252px; height: 3.31252px; left: 35.9187%; top: 46.3724%; animation-delay: 1.13415s; margin-top: -509.912px;"></div><div class="sparkle" data-depth="0.20197088959094006" style="width: 3.63979px; height: 3.63979px; left: 25.1687%; top: 24.6909%; animation-delay: 2.89447s; margin-top: -525.124px;"></div><div class="sparkle" data-depth="0.1746830839037597" style="width: 2.79268px; height: 2.79268px; left: 5.73359%; top: 76.3853%; animation-delay: 4.57665s; margin-top: -454.176px;"></div><div class="sparkle" data-depth="0.1677267886962193" style="width: 1.24222px; height: 1.24222px; left: 50.9215%; top: 23.4425%; animation-delay: 0.870484s; margin-top: -436.09px;"></div><div class="sparkle" data-depth="0.18569407988623648" style="width: 3.17162px; height: 3.17162px; left: 77.6349%; top: 47.1509%; animation-delay: 2.589s; margin-top: -482.805px;"></div><div class="sparkle" data-depth="0.11149007634688948" style="width: 2.32877px; height: 2.32877px; left: 70.0733%; top: 38.2916%; animation-delay: 4.24908s; margin-top: -289.874px;"></div><div class="sparkle" data-depth="0.1511658539768284" style="width: 1.52966px; height: 1.52966px; left: 1.45952%; top: 93.0949%; animation-delay: 1.92107s; margin-top: -393.031px;"></div><div class="sparkle" data-depth="0.052939712193387625" style="width: 1.26714px; height: 1.26714px; left: 61.2968%; top: 93.6052%; animation-delay: 2.3838s; margin-top: -137.643px;"></div><div class="sparkle" data-depth="0.07456535313104534" style="width: 3.85595px; height: 3.85595px; left: 26.1827%; top: 6.90736%; animation-delay: 2.06604s; margin-top: -193.87px;"></div><div class="sparkle" data-depth="0.20781562017622202" style="width: 2.46951px; height: 2.46951px; left: 64.3763%; top: 1.62975%; animation-delay: 3.30998s; margin-top: -540.321px;"></div><div class="sparkle" data-depth="0.19857688032471132" style="width: 1.36924px; height: 1.36924px; left: 70.8866%; top: 22.0716%; animation-delay: 3.86515s; margin-top: -516.3px;"></div><div class="sparkle" data-depth="0.13919663198474636" style="width: 1.94879px; height: 1.94879px; left: 84.7634%; top: 6.60369%; animation-delay: 0.837861s; margin-top: -361.911px;"></div><div class="sparkle" data-depth="0.23340003017854077" style="width: 1.1571px; height: 1.1571px; left: 4.7529%; top: 66.7202%; animation-delay: 1.7376s; margin-top: -606.84px;"></div><div class="sparkle" data-depth="0.16690419193203077" style="width: 3.99546px; height: 3.99546px; left: 84.8603%; top: 35.0277%; animation-delay: 0.235485s; margin-top: -433.951px;"></div><div class="sparkle" data-depth="0.22213597779648053" style="width: 3.6673px; height: 3.6673px; left: 84.5708%; top: 51.2994%; animation-delay: 0.923195s; margin-top: -577.554px;"></div><div class="sparkle" data-depth="0.248653487207607" style="width: 3.92938px; height: 3.92938px; left: 74.2438%; top: 14.2146%; animation-delay: 0.860962s; margin-top: -646.499px;"></div><div class="sparkle" data-depth="0.06985136930439771" style="width: 3.85534px; height: 3.85534px; left: 3.51729%; top: 84.1679%; animation-delay: 4.65166s; margin-top: -181.614px;"></div><div class="sparkle" data-depth="0.21960291792787318" style="width: 3.43426px; height: 3.43426px; left: 67.4232%; top: 4.10417%; animation-delay: 1.40059s; margin-top: -570.968px;"></div><div class="sparkle" data-depth="0.054680056896249774" style="width: 2.71094px; height: 2.71094px; left: 14.5106%; top: 35.5913%; animation-delay: 1.25457s; margin-top: -142.168px;"></div><div class="sparkle" data-depth="0.18891496505334615" style="width: 1.35628px; height: 1.35628px; left: 68.3687%; top: 79.6912%; animation-delay: 4.42787s; margin-top: -491.179px;"></div><div class="sparkle" data-depth="0.09839952706557367" style="width: 3.45215px; height: 3.45215px; left: 95.9276%; top: 50.4799%; animation-delay: 3.27927s; margin-top: -255.839px;"></div><div class="sparkle" data-depth="0.17589315348876666" style="width: 2.73791px; height: 2.73791px; left: 98.9936%; top: 59.4894%; animation-delay: 4.83177s; margin-top: -457.322px;"></div><div class="sparkle" data-depth="0.060656518152016586" style="width: 1.73397px; height: 1.73397px; left: 16.2533%; top: 48.0459%; animation-delay: 1.3104s; margin-top: -157.707px;"></div><div class="sparkle" data-depth="0.2233680288822405" style="width: 3.12638px; height: 3.12638px; left: 19.8507%; top: 26.3288%; animation-delay: 2.02984s; margin-top: -580.757px;"></div><div class="sparkle" data-depth="0.14392666739528528" style="width: 3.72325px; height: 3.72325px; left: 68.5874%; top: 14.3921%; animation-delay: 3.51387s; margin-top: -374.209px;"></div><div class="sparkle" data-depth="0.13906099444221698" style="width: 1.28296px; height: 1.28296px; left: 21.8008%; top: 83.2936%; animation-delay: 4.33474s; margin-top: -361.559px;"></div><div class="sparkle" data-depth="0.05626590944168979" style="width: 2.87065px; height: 2.87065px; left: 95.691%; top: 10.1867%; animation-delay: 2.87543s; margin-top: -146.291px;"></div><div class="sparkle" data-depth="0.06788462819648813" style="width: 1.479px; height: 1.479px; left: 59.2118%; top: 24.6831%; animation-delay: 3.28731s; margin-top: -176.5px;"></div><div class="sparkle" data-depth="0.17786976342088928" style="width: 2.71069px; height: 2.71069px; left: 22.396%; top: 73.9618%; animation-delay: 0.792215s; margin-top: -462.461px;"></div><div class="sparkle" data-depth="0.24565853407902788" style="width: 2.24655px; height: 2.24655px; left: 36.5066%; top: 26.8767%; animation-delay: 3.05677s; margin-top: -638.712px;"></div><div class="sparkle" data-depth="0.06756643791534023" style="width: 1.79833px; height: 1.79833px; left: 2.11504%; top: 81.43%; animation-delay: 0.738047s; margin-top: -175.673px;"></div><div class="sparkle" data-depth="0.19764802569459827" style="width: 2.74636px; height: 2.74636px; left: 2.2178%; top: 18.2208%; animation-delay: 3.59186s; margin-top: -513.885px;"></div><div class="sparkle" data-depth="0.06716775843939177" style="width: 2.03737px; height: 2.03737px; left: 8.26391%; top: 29.1108%; animation-delay: 0.883187s; margin-top: -174.636px;"></div><div class="sparkle" data-depth="0.2466608733453089" style="width: 3.20103px; height: 3.20103px; left: 8.86919%; top: 4.08184%; animation-delay: 0.727574s; margin-top: -641.318px;"></div><div class="sparkle" data-depth="0.09920483365406535" style="width: 2.00656px; height: 2.00656px; left: 99.9976%; top: 12.1676%; animation-delay: 0.423318s; margin-top: -257.933px;"></div><div class="sparkle" data-depth="0.18571765474970153" style="width: 3.22081px; height: 3.22081px; left: 18.0523%; top: 20.9246%; animation-delay: 3.18687s; margin-top: -482.866px;"></div><div class="sparkle" data-depth="0.141750819930486" style="width: 2.79512px; height: 2.79512px; left: 52.7029%; top: 18.5993%; animation-delay: 1.63746s; margin-top: -368.552px;"></div><div class="sparkle" data-depth="0.2414127394036844" style="width: 2.61306px; height: 2.61306px; left: 50.1654%; top: 89.3571%; animation-delay: 1.85113s; margin-top: -627.673px;"></div><div class="sparkle" data-depth="0.16793247740736061" style="width: 2.01017px; height: 2.01017px; left: 70.9222%; top: 82.3942%; animation-delay: 0.907384s; margin-top: -436.624px;"></div><div class="sparkle" data-depth="0.19098605405741914" style="width: 1.54387px; height: 1.54387px; left: 8.50738%; top: 64.5631%; animation-delay: 1.03817s; margin-top: -496.564px;"></div><div class="sparkle" data-depth="0.14460763564510493" style="width: 2.74173px; height: 2.74173px; left: 84.4938%; top: 45.8696%; animation-delay: 0.570221s; margin-top: -375.98px;"></div><div class="sparkle" data-depth="0.12610199482331308" style="width: 2.48882px; height: 2.48882px; left: 35.5295%; top: 77.0645%; animation-delay: 3.26196s; margin-top: -327.865px;"></div><div class="sparkle" data-depth="0.2087870976475309" style="width: 3.93787px; height: 3.93787px; left: 46.2214%; top: 66.9057%; animation-delay: 3.46824s; margin-top: -542.846px;"></div><div class="sparkle" data-depth="0.13640032581555356" style="width: 2.65673px; height: 2.65673px; left: 9.2039%; top: 74.6721%; animation-delay: 3.03646s; margin-top: -354.641px;"></div><div class="sparkle" data-depth="0.23218124508365995" style="width: 1.9106px; height: 1.9106px; left: 43.8213%; top: 16.0873%; animation-delay: 0.853966s; margin-top: -603.671px;"></div><div class="sparkle" data-depth="0.17567075545182353" style="width: 1.17214px; height: 1.17214px; left: 4.57484%; top: 48.0426%; animation-delay: 4.56823s; margin-top: -456.744px;"></div><div class="sparkle" data-depth="0.2155851474848854" style="width: 1.90191px; height: 1.90191px; left: 82.2608%; top: 92.6871%; animation-delay: 0.0873144s; margin-top: -560.521px;"></div><div class="sparkle" data-depth="0.09468299708978037" style="width: 2.57845px; height: 2.57845px; left: 44.0203%; top: 51.6897%; animation-delay: 3.54222s; margin-top: -246.176px;"></div><div class="sparkle" data-depth="0.07135787000586827" style="width: 1.94911px; height: 1.94911px; left: 18.0563%; top: 26.8366%; animation-delay: 0.774888s; margin-top: -185.53px;"></div></div>
 
 <!-- GOLD FLASH -->
-<div id="gold-flash"></div>
+<div id="gold-flash" class="flash" style="transition: opacity 0.8s; opacity: 0; display: none;"></div>
 
 <!-- ================================================
      INTRO SCREEN
 ================================================ -->
-<div id="intro-screen" >
+<div id="intro-screen" onclick="enterSite()">
 
   <!-- Mandala -->
   <div class="mandala-stage" style="z-index:1">
@@ -881,7 +875,7 @@ body.theme-teal #gold-flash {
   <g id="d0" transform="translate(200,8)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df0" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-6.64) scale(0.892,0.967)">
+    <g id="df0" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(5.47) scale(0.900,1.152)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -891,7 +885,7 @@ body.theme-teal #gold-flash {
   <g id="d1" transform="translate(334,66)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df1" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-6.69) scale(0.792,1.019)">
+    <g id="df1" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(7.06) scale(0.862,1.120)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -901,7 +895,7 @@ body.theme-teal #gold-flash {
   <g id="d2" transform="translate(392,200)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df2" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(7.52) scale(0.967,1.051)">
+    <g id="df2" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-6.69) scale(0.995,1.099)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -911,7 +905,7 @@ body.theme-teal #gold-flash {
   <g id="d3" transform="translate(334,334)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df3" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(5.35) scale(0.908,1.127)">
+    <g id="df3" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(7.40) scale(0.930,1.118)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -921,7 +915,7 @@ body.theme-teal #gold-flash {
   <g id="d4" transform="translate(200,392)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df4" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(8.94) scale(0.800,0.900)">
+    <g id="df4" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(2.14) scale(0.852,1.093)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -931,7 +925,7 @@ body.theme-teal #gold-flash {
   <g id="d5" transform="translate(66,334)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df5" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(1.77) scale(1.177,0.981)">
+    <g id="df5" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(5.14) scale(1.143,0.864)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -941,7 +935,7 @@ body.theme-teal #gold-flash {
   <g id="d6" transform="translate(8,200)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df6" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-3.45) scale(1.170,1.031)">
+    <g id="df6" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-5.37) scale(1.124,1.122)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -951,7 +945,7 @@ body.theme-teal #gold-flash {
   <g id="d7" transform="translate(66,66)" style="opacity:0">
     <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#diyaGrad)"></ellipse>
     <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.7)"></ellipse>
-    <g id="df7" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-1.28) scale(1.176,1.020)">
+    <g id="df7" class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(5.03) scale(1.068,0.914)">
       <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
       <path d="M0,0 C-5,-8 -3,-18 0,-22 C3,-18 5,-8 0,0 Z" fill="url(#flameA)"></path>
       <path d="M0,0 C-2,-5 -1,-11 0,-13 C1,-11 2,-5 0,0 Z" fill="rgba(255,255,220,0.9)"></path>
@@ -964,11 +958,11 @@ body.theme-teal #gold-flash {
 
   <!-- Text -->
   <div class="intro-text-wrap" style="z-index:1">
-    <div class="intro-tagline" id="introTagline" style="font-family: Georgia, serif; font-size: 10px; letter-spacing: 1.5px; line-height: 1.2;"><span class="tl-0" style="font-family: &quot;Times New Roman&quot;, serif;">You are invited to our daughter's</span><br><span class="tl-1" style="font-size: 20px; font-family: Georgia, serif;"> wedding</span></div>
+    <div class="intro-tagline" id="introTagline" style="font-family: Georgia, serif; font-size: 10px; letter-spacing: 1.5px; line-height: 1.2;"><span class="tl-0" style="font-family: &quot;Times New Roman&quot;, serif;">You are invited to our daughter's</span><br><span class="tl-1" style="font-family: Georgia, serif; font-size: 20px;"> wedding</span></div>
     <div class="intro-names" id="introNames" style="font-family: &quot;Great Vibes&quot;, cursive; font-size: 42px; letter-spacing: 0px; line-height: 1.3; margin-top: -1px;">Nishtha <span class="i-amp">&amp;</span> Manish</div>
     <div class="intro-date" id="introDate" style="font-family: &quot;Times New Roman&quot;, serif; font-size: 12px; letter-spacing: 1.5px; line-height: 1.3; margin-top: -1px;">18–19 June 2026 · The Auric Resort, Kota</div>
   </div>
-  <div class="intro-tap" style="font-family: &quot;Times New Roman&quot;, serif; font-size: 12px; letter-spacing: 1px; line-height: 0.8;">✦ Tap anywhere to open ✦</div>
+  <div class="intro-tap">✦ Tap anywhere to open ✦</div>
 
 </div>
 
@@ -981,7 +975,7 @@ body.theme-teal #gold-flash {
   <!-- HERO -->
   <section class="hero">
     <div class="hero-light"></div>
-    <div id="petalsWrap" style="position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden"></div>
+    <div id="petalsWrap" style="position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden"><div class="petal" style="left: 93.2444%; top: -20px; font-size: 19.4202px; animation-duration: 5.38615s; animation-delay: 4.46583s;">🌸</div><div class="petal" style="left: 95.7656%; top: -20px; font-size: 16.1996px; animation-duration: 6.46149s; animation-delay: 3.77115s;">🌺</div><div class="petal" style="left: 18.9052%; top: -20px; font-size: 11.3302px; animation-duration: 8.79117s; animation-delay: 4.40271s;">🪷</div><div class="petal" style="left: 69.098%; top: -20px; font-size: 16.353px; animation-duration: 6.79197s; animation-delay: 4.52358s;">✿</div><div class="petal" style="left: 44.2908%; top: -20px; font-size: 16.4332px; animation-duration: 6.94489s; animation-delay: 1.02101s;">❀</div><div class="petal" style="left: 40.6322%; top: -20px; font-size: 12.6967px; animation-duration: 4.25816s; animation-delay: 1.22079s;">🌻</div><div class="petal" style="left: 33.2025%; top: -20px; font-size: 10.1038px; animation-duration: 7.4895s; animation-delay: 3.77052s;">🌹</div><div class="petal" style="left: 39.0706%; top: -20px; font-size: 13.9694px; animation-duration: 7.49496s; animation-delay: 2.97915s;">🌸</div><div class="petal" style="left: 51.4621%; top: -20px; font-size: 10.3856px; animation-duration: 6.80448s; animation-delay: 2.95716s;">🌺</div><div class="petal" style="left: 25.0294%; top: -20px; font-size: 14.0338px; animation-duration: 4.1405s; animation-delay: 3.56322s;">🪷</div><div class="petal" style="left: 31.0842%; top: -20px; font-size: 18.9413px; animation-duration: 7.04509s; animation-delay: 4.27081s;">✿</div><div class="petal" style="left: 74.0626%; top: -20px; font-size: 15.5562px; animation-duration: 5.47227s; animation-delay: 0.379641s;">❀</div><div class="petal" style="left: 5.29511%; top: -20px; font-size: 16.6214px; animation-duration: 8.26885s; animation-delay: 2.74321s;">🌻</div><div class="petal" style="left: 82.0428%; top: -20px; font-size: 16.6637px; animation-duration: 5.35591s; animation-delay: 3.58587s;">🌹</div></div>
 
     <div class="palace-wrap">
       <!-- The Auric Resort, Kota — modern luxury resort silhouette -->
@@ -1118,13 +1112,13 @@ body.theme-teal #gold-flash {
     <!-- Couple SVG (now in flow, below names) -->
 
     <div class="hero-text">
-      <span class="hero-tagline" style="font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 1px; line-height: 1.1;"><span class="tl-0" style="font-size: 12px; line-height: 1.6;">We solicit your presence on </span><br><span class="tl-1" style="font-size: 12px; line-height: 1.5; margin-top: -4px;">the auspicious occasion of our</span><br><span class="tl-2" style="font-size: 22px; letter-spacing: 0.5px; line-height: 1.5; margin-top: -4px;"> daughter's wedding</span></span>
+      <span class="hero-tagline"><span class="tl-0" style="font-size: 12px; line-height: 1.6;">We solicit your presence on </span><br><span class="tl-1" style="font-size: 11px; letter-spacing: 4px; line-height: 1.5; margin-top: -4px;">the auspicious occasion of our</span><br><span class="tl-2" style="font-size: 22px; letter-spacing: 0.5px; line-height: 1.5; margin-top: -4px;"> daughter's wedding</span></span>
       <div class="hero-names-big">
         <span id="h1" style="font-size: 71px; letter-spacing: 0px; line-height: 1.5;">Nishtha</span>
         <span class="amp-line" style="font-size: 36px; letter-spacing: 4.5px; line-height: 1.7; margin-top: -14px;">— weds —</span>
         <span id="h2" style="font-size: 71px; letter-spacing: 0px; line-height: 1.1; margin-top: -14px;">Manish</span>
       </div>
-      <div class="hero-date-tag" id="hDate" style="font-size: 14px; letter-spacing: 3px; line-height: 0.8;">18–19 June 2026</div>
+      <div class="hero-date-tag" id="hDate">18–19 June 2026</div>
     </div>
 
     <div class="couple-wrap">
@@ -1180,7 +1174,7 @@ body.theme-teal #gold-flash {
     
 
       <!-- RSVP -->
-  <div class="page reveal">
+  <div class="page reveal in">
     <svg class="page-mandala-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g fill="none" stroke="rgba(245,200,70,1)" stroke-width="0.8">
         <circle cx="200" cy="200" r="195"></circle><circle cx="200" cy="200" r="150"></circle><circle cx="200" cy="200" r="95"></circle>
@@ -1197,12 +1191,127 @@ body.theme-teal #gold-flash {
     <div class="sec-label" id="secLblRsvp" style="font-family: Cinzel, serif; font-size: 14px; line-height: 2.1;">Kindly Fill the details</div>
     <div class="sec-title" id="secTitRsvp" style="font-size: 42px; letter-spacing: 0.5px; line-height: 1.1; margin-top: 1px;">To help us plan, please confirm your attendance by 20/05/2026</div>
     <div class="gold-rule"></div>
-    <div class="diya-row" id="rsvpDiyaRow" style="margin-bottom:24px"></div>
+    <div class="diya-row" id="rsvpDiyaRow" style="margin-bottom:24px"><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgrsvpDiyaRow0" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgrsvpDiyaRow0" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgrsvpDiyaRow0)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-5.92) scale(0.874,1.149)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgrsvpDiyaRow0)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgrsvpDiyaRow1" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgrsvpDiyaRow1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgrsvpDiyaRow1)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(9.43) scale(0.968,0.885)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgrsvpDiyaRow1)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgrsvpDiyaRow2" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgrsvpDiyaRow2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgrsvpDiyaRow2)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-1.87) scale(0.986,0.912)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgrsvpDiyaRow2)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgrsvpDiyaRow3" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgrsvpDiyaRow3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgrsvpDiyaRow3)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-0.78) scale(1.060,1.125)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgrsvpDiyaRow3)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgrsvpDiyaRow4" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgrsvpDiyaRow4" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgrsvpDiyaRow4)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-9.99) scale(1.181,0.891)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgrsvpDiyaRow4)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg></div>
     <div class="rsvp-box">
       <div id="rsvpForm">
-        <div class="field"><label style="font-size: 11px; letter-spacing: 2px; line-height: 1.1;">Your Full Name</label><input type="text" id="rName" placeholder="Enter your name"></div>
+        <div class="field"><label>Your Full Name</label><input type="text" id="rName" placeholder="Enter your name"></div>
         <div class="field">
-          <label style="font-size: 11px; letter-spacing: 2px; line-height: 1.1;">Number of Guests</label>
+          <label>Number of Guests</label>
           <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
             <button type="button" onclick="changeGuests(-1)" style="width:40px;height:40px;font-size:24px;background:rgba(245,200,70,0.1);border:1px solid rgba(200,152,10,0.3);color:var(--gold-bright);cursor:pointer;border-radius:4px;transition:all 0.3s;">−</button>
             <input type="number" id="rGuests" value="1" min="1" max="20" readonly="" style="width:80px;text-align:center;font-size:24px;font-weight:bold;background:rgba(245,208,80,0.05);border:1px solid rgba(200,152,10,0.3);color:var(--gold-bright);padding:8px;border-radius:4px;">
@@ -1210,9 +1319,9 @@ body.theme-teal #gold-flash {
           </div>
         </div>
         <input type="hidden" id="rAttend" value="yes">
-           <div class="field"><label style="font-size: 11px; letter-spacing: 2px; line-height: 1.1;">When are you arriving?</label><input type="datetime-local" id="rArrival" style="width:100%;background:rgba(245,208,80,0.06);border:1px solid rgba(200,152,10,0.3);color:var(--text-cream);font-family:'Cormorant Garamond',serif;font-size:15px;padding:10px 12px;border-radius:4px;outline:none;color-scheme:dark;"></div>
+           <div class="field"><label>When are you arriving?</label><input type="datetime-local" id="rArrival" style="width:100%;background:rgba(245,208,80,0.06);border:1px solid rgba(200,152,10,0.3);color:var(--text-cream);font-family:'Cormorant Garamond',serif;font-size:15px;padding:10px 12px;border-radius:4px;outline:none;color-scheme:dark;"></div>
         <div id="rsvpErr" style="display:none;color:#e05050;font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-align:center;margin-bottom:12px;">Please fill in all fields ✦</div>
-        <button class="rsvp-btn" id="rsvpBtn" onclick="submitRSVP()" style="font-size: 16px; letter-spacing: 6px; line-height: 0.8;">✦Send Details✦</button>
+        <button class="rsvp-btn" id="rsvpBtn" onclick="submitRSVP()">✦Send Details✦</button>
       </div>
       <div class="rsvp-success" id="rsvpSuccess"></div>
     </div>
@@ -1220,7 +1329,7 @@ body.theme-teal #gold-flash {
 
 
   <!-- EVENTS -->
-  <div class="page reveal">
+  <div class="page reveal in">
     <!-- faint mandala watermark -->
     <svg class="page-mandala-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g fill="none" stroke="rgba(245,200,70,1)" stroke-width="0.8">
@@ -1242,18 +1351,18 @@ body.theme-teal #gold-flash {
     <div class="gold-rule"></div>
     <div class="diya-row" id="evDiyaRow" style="margin-bottom:24px"></div>
     <div class="events">
-      <div class="event-item"><div class="event-icon">🙏</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Ganesh Poojan</div><div class="event-detail" id="ev1" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 19px;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 18px;"> 7:00 AM</span></div></div></div>
-      <div class="event-item"><div class="event-icon">🏺</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Dholi Kalash</div><div class="event-detail" id="ev2" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 17px; line-height: 1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 17px; line-height: 1;"> 9:30 AM</span></div></div></div>
-      <div class="event-item" style="cursor: pointer;"><div class="event-icon">🥣</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Haldi Ceremony</div><div class="event-detail" id="ev3" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 17px; line-height: 1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 17px; line-height: 1;"> 11:00 AM</span></div></div><div class="dc-badge" style="font-size: 8px; letter-spacing: 0.5px; line-height: 2.2;">🎨 ANY BLUE COLOR</div><div class="reveal-badge" style="font-size: 10px; letter-spacing: 1px; line-height: 1.2;">Reveal Theme</div></div>
-      <div class="event-item"><div class="event-icon">💍</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Engagement &amp; Sangeet</div><div class="event-detail" id="ev4" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 17px; line-height: 1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 17px; line-height: 1;"> 6:00 PM</span></div></div></div>
-      <div class="event-item"><div class="event-icon">🎺</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Barat Swagat</div><div class="event-detail" id="ev5" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 17px; line-height: 1;">19th June, 2026 </span><br><span class="tl-1" style="font-size: 17px; line-height: 1;"> 11:55 AM</span></div></div></div>
-      <div class="event-item"><div class="event-icon">🔥</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Panigrahan Sanskar (Phere)</div><div class="event-detail" id="ev6" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 17px; line-height: 1;">19th June, 2026 </span><br><span class="tl-1" style="font-size: 17px; line-height: 1;"> 2:00 PM</span></div></div></div>
-      <div class="event-item" style="cursor: pointer;"><div class="event-icon">🎩</div><div class="event-info"><div class="event-name" style="font-size: 14px; letter-spacing: 0.5px;">Reception</div><div class="event-detail" id="ev7" style="font-size: 17px; line-height: 1;"><span class="tl-0" style="font-size: 17px; line-height: 1;">19th June, 2026 </span><br><span class="tl-1" style="font-size: 17px; line-height: 1;"> 7:00 PM</span></div></div><div class="emoji-reveal-wrap"><span class="individual-emoji" style="font-size: 23px;">👗</span><span class="individual-emoji" style="font-size: 23px; color: rgba(200, 152, 10, 0.9);">Western</span><span class="individual-emoji" style="font-size: 23px;">👔</span></div><div class="reveal-badge" style="font-size: 10px; letter-spacing: 1px; line-height: 1.2;">Reveal Theme</div></div>
+      <div class="event-item"><div class="event-icon">🙏</div><div class="event-info"><div class="event-name">Ganesh Poojan</div><div class="event-detail" id="ev1"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 7:00 AM</span></div></div></div>
+      <div class="event-item"><div class="event-icon">🏺</div><div class="event-info"><div class="event-name">Dholi Kalash</div><div class="event-detail" id="ev2"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 9:30 AM</span></div></div></div>
+      <div class="event-item" style="cursor: pointer;"><div class="event-icon">🥣</div><div class="event-info"><div class="event-name">Haldi Ceremony</div><div class="event-detail" id="ev3"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 11:00 AM</span></div></div><div class="dc-badge">🎨 ANY BLUE COLOR</div><div class="reveal-badge">Reveal Theme</div></div>
+      <div class="event-item"><div class="event-icon">💍</div><div class="event-info"><div class="event-name">Engagement &amp; Sangeet</div><div class="event-detail" id="ev4"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">18th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 6:00 PM</span></div></div></div>
+      <div class="event-item"><div class="event-icon">🎺</div><div class="event-info"><div class="event-name">Barat Swagat</div><div class="event-detail" id="ev5"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">19th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 11:55 AM</span></div></div></div>
+      <div class="event-item"><div class="event-icon">🔥</div><div class="event-info"><div class="event-name">Panigrahan Sanskar (Phere)</div><div class="event-detail" id="ev6"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">19th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 2:00 PM</span></div></div></div>
+      <div class="event-item" style="cursor: pointer;"><div class="event-icon">🎩</div><div class="event-info"><div class="event-name">Reception</div><div class="event-detail" id="ev7"><span class="tl-0" style="font-size: 22px; line-height: 1.1;">19th June, 2026 </span><br><span class="tl-1" style="font-size: 21px; line-height: 1;"> 7:00 PM</span></div></div><div class="emoji-reveal-wrap"><span class="individual-emoji">👗</span><span class="individual-emoji" style="font-family: Cinzel, serif; font-size: 9px; letter-spacing: 2px; color: rgba(200, 152, 10, 0.9);">Western</span><span class="individual-emoji">👔</span></div><div class="reveal-badge">Reveal Theme</div></div>
     </div>
   </div>
 
   <!-- VENUE -->
-  <div class="page reveal" style="background:radial-gradient(ellipse at 50% 50%, #1e0818 0%, #0d0208 100%)">
+  <div class="page reveal in" style="background:radial-gradient(ellipse at 50% 50%, #1e0818 0%, #0d0208 100%)">
     <svg class="page-mandala-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g fill="none" stroke="rgba(245,200,70,1)" stroke-width="0.8">
         <circle cx="200" cy="200" r="195"></circle><circle cx="200" cy="200" r="155"></circle><circle cx="200" cy="200" r="110"></circle>
@@ -1426,8 +1535,8 @@ body.theme-teal #gold-flash {
         </svg>
       </div>
       <div class="venue-info">
-        <div class="venue-name-script" id="venueName" style="font-family: Cinzel, serif; font-size: 46px; letter-spacing: 0px; line-height: 1;">The Auric Resort</div>
-        <div class="venue-address" id="venueAddress" style="font-size: 23px; letter-spacing: 1.5px; line-height: 0.8;">Kota, Rajasthan</div>
+        <div class="venue-name-script" id="venueName">The Auric Resort</div>
+        <div class="venue-address" id="venueAddress">Kota, Rajasthan</div>
       </div>
       <div class="map-area">
         <iframe id="mapFrame" src="https://maps.google.com/maps?q=The+Auric+Resort+Kota+Rajasthan&amp;output=embed&amp;z=14" allowfullscreen="" loading="lazy"></iframe>
@@ -1449,9 +1558,170 @@ body.theme-teal #gold-flash {
         <rect x="-1" y="-400" width="2" height="800" transform="rotate(120)"></rect>
       </g>
     </svg>
-    <div class="diya-row" id="footDiyaRow" style="margin-bottom:28px;position:relative;z-index:1"></div>
+    <div class="diya-row" id="footDiyaRow" style="margin-bottom:28px;position:relative;z-index:1"><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow0" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow0" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow0)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(7.00) scale(1.040,1.130)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow0)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow1" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow1)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(5.70) scale(1.025,0.942)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow1)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow2" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow2)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-4.96) scale(1.013,0.924)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow2)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow3" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow3)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-3.35) scale(0.878,0.982)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow3)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow4" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow4" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow4)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-2.09) scale(0.867,0.839)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow4)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow5" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow5" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow5)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(-8.17) scale(0.882,1.001)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow5)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg><svg viewBox="-14 -26 28 36" width="28" height="36" style="overflow: visible;">
+      <defs>
+        <radialGradient id="mdgfootDiyaRow6" cx="50%" cy="80%" r="60%">
+          <stop offset="0%" stop-color="#e8a840"></stop>
+          <stop offset="100%" stop-color="#8a5000"></stop>
+        </radialGradient>
+        <linearGradient id="mfgfootDiyaRow6" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+          <stop offset="30%" stop-color="#ffe060"></stop>
+          <stop offset="70%" stop-color="#ff7800"></stop>
+          <stop offset="100%" stop-color="#cc2800" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- glow -->
+      <ellipse cx="0" cy="-4" rx="9" ry="9" fill="rgba(255,170,20,0.18)"></ellipse>
+      <!-- diya body -->
+      <ellipse cx="0" cy="8" rx="13" ry="5" fill="url(#mdgfootDiyaRow6)"></ellipse>
+      <ellipse cx="0" cy="5" rx="7" ry="3" fill="rgba(200,130,30,0.65)"></ellipse>
+      <!-- flame group — transform-origin at wick tip (0,0) -->
+      <g class="mini-flame-g" style="transform-origin:0px 0px" transform="skewX(2.43) scale(1.188,0.975)">
+        <ellipse cx="0" cy="-4" rx="6" ry="6" fill="rgba(255,160,20,0.2)"></ellipse>
+        <path d="M0,0 C-4,-7 -2,-16 0,-19 C2,-16 4,-7 0,0 Z" fill="url(#mfgfootDiyaRow6)"></path>
+        <path d="M0,0 C-1.5,-5 -0.8,-10 0,-12 C0.8,-10 1.5,-5 0,0 Z" fill="rgba(255,255,200,0.85)"></path>
+      </g></svg></div>
     <div class="footer-names" id="footerNames" style="font-size: 38px; letter-spacing: 1px; line-height: 0.8;">Nishtha &amp; Manish</div>
-    <div class="footer-sub" style="font-size: 16px; line-height: 1.3; margin-top: 19px;"><span class="tl-0" style="font-size: 16px; line-height: 1.3;">With love &amp; blessings from all</span><br><span class="tl-1" style="font-size: 16px; line-height: 1.3;"> elders</span></div>
+    <div class="footer-sub" style="font-size: 16px; line-height: 1.3; margin-top: 19px;"><span class="tl-0" style="">With love &amp; blessings from all</span><br><span class="tl-1" style=""> elders</span></div>
     <div class="footer-venue" style="font-family: Cinzel, serif; font-size: 17px; margin-top: 19px;">The Auric Resort · Kota</div>
   </div>
 
@@ -2080,8 +2350,7 @@ function enterSite(){
   if(typeof startMusicEngine === "function") startMusicEngine();
   if(entered) return;
   entered = true;
-  document.body.style.overflow = 'auto';
-   document.body.style.webkitOverflowScrolling = 'touch';
+  document.body.style.overflow = 'auto'; // Enable scrolling when entering site
   const flash = document.getElementById('gold-flash');
   flash.classList.add('flash');
   setTimeout(()=>{ flash.style.transition='opacity 0.8s'; flash.style.opacity='0'; },300);
@@ -2376,11 +2645,9 @@ function fsApplyAll(){
     if(b.type==='single'){
       const bd=fsData[b.id];
       if(!bd) return;
-      // Apply whole-block styles (font, size, spacing)
-      fsApplyStyle(b.sel,bd);
-      // Apply per-span (tl-N) styles if they exist in saved data
-      const parent=document.querySelector(b.sel);
-      if(parent){
+      // Apply per-span (tl-N) styles to ALL matching elements (not just the first)
+      const parents=Array.from(document.querySelectorAll(b.sel));
+      parents.forEach(parent=>{
         let i=0; let span;
         while((span=parent.querySelector('.tl-'+i))){
           const lineId='tl-'+i;
@@ -2392,7 +2659,7 @@ function fsApplyAll(){
           let j=1; let el;
           while((el=parent.querySelector('.tl-'+j))){ el.style.marginTop=bd.tlGap+'px'; j++; }
         }
-      }
+      });
     } else {
       const bd=fsData[b.id]||{};
       b.lines.forEach(l=>{ const d=bd[l.id]; if(d) fsApplyStyle(l.sel,d); });
@@ -2408,12 +2675,6 @@ function fsApplyStyle(sel,d,directEl){
     el.style.fontSize     = d.fontSize!==undefined     ? d.fontSize+'px': '';
     el.style.letterSpacing= d.letterSpacing!==undefined? d.letterSpacing+'px':'';
     el.style.lineHeight   = d.lineHeight!==undefined   ? d.lineHeight   : '';
-    // Also apply to all child tl-N spans inside this element
-    el.querySelectorAll('[class*="tl-"]').forEach(span=>{
-      span.style.fontSize     = d.fontSize!==undefined     ? d.fontSize+'px': '';
-      span.style.letterSpacing= d.letterSpacing!==undefined? d.letterSpacing+'px':'';
-      span.style.lineHeight   = d.lineHeight!==undefined   ? d.lineHeight   : '';
-    });
   });
 }
 
@@ -3032,7 +3293,6 @@ function buildDressCodes(){
 
   if(typeof fsApplyAll === "function") fsApplyAll();
 }
-
 
 // ===== INIT =====
 loadSavedData();
