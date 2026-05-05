@@ -3065,7 +3065,7 @@ function buildDressCodes(){
     // Clear any old elements first (prevents doubling)
     item.querySelectorAll('.emoji-reveal-wrap, .reveal-badge, .dc-badge').forEach(el => el.remove());
 
-    // 1. Reception — two stacked lines
+    // 1. Reception — two stacked lines, ALWAYS VISIBLE
     if(evId === 'ev7') {
       const wrap = document.createElement('div');
       wrap.className = 'emoji-reveal-wrap';
@@ -3087,7 +3087,7 @@ function buildDressCodes(){
       wrap.appendChild(line2);
       item.appendChild(wrap);
 
-    // 2. Standard badge (Haldi etc.)
+    // 2. Standard badge (Haldi etc.), ALWAYS VISIBLE
     } else {
       const badge = document.createElement('div');
       badge.className = 'dc-badge';
@@ -3095,18 +3095,12 @@ function buildDressCodes(){
       item.appendChild(badge);
     }
 
-    // 3. "Reveal Theme" teaser for Haldi + Reception
-    if(evId === 'ev3' || evId === 'ev7') {
-      const teaser = document.createElement('div');
-      teaser.className = 'reveal-badge';
-      teaser.textContent = 'Reveal Theme';
-      item.appendChild(teaser);
-    }
+    // ── ALWAYS ACTIVE: no tap needed, no reveal-badge teaser ──
+    if(evId === 'ev3') item.classList.add('active-ev3');
+    if(evId === 'ev7') item.classList.add('active-ev7');
 
-    item.style.cursor = 'pointer';
-    item.onclick = function() {
-      this.classList.toggle('active-' + evId);
-    };
+    // Remove cursor pointer and onclick — nothing to tap anymore
+    item.style.cursor = 'default';
   });
 
   if(typeof fsApplyAll === "function") fsApplyAll();
@@ -3158,7 +3152,7 @@ function showRevealTooltips(){
 }
 
 // Wait for scroll reveal to bring events into view, then show tooltips
-setTimeout(showRevealTooltips, 2000);
+//setTimeout(showRevealTooltips, 2000);
 
 
 </script>
